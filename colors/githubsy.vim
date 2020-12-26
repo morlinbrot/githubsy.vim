@@ -1,7 +1,7 @@
-" File:       githubsy.vim
-" Maintainer: synul (synul@mailbox.org)
+" Author:     synul (synul@mailbox.org)
 " URL:        https://github.com/synul/githubsy.vim
 " License:    MIT
+" Copyright (c) 2020 synul
 
 set background=dark
 hi clear
