@@ -16,21 +16,21 @@ let colors_name = "githubsy"
 hi Boolean guifg=#5fafff ctermfg=75
 hi Comment guifg=#545c8c ctermfg=60 gui=NONE cterm=NONE
 hi Constant guifg=#5fafff ctermfg=75
-hi Delimiter guifg=#ff8700 ctermfg=203
+hi Delimiter guifg=#f5f5f5 ctermfg=203
 hi Float guifg=#5fafff ctermfg=75
 hi Function guifg=#af87d7 ctermfg=140 gui=NONE cterm=NONE
 hi Identifier guifg=#af87d7 ctermfg=140
 hi Include guifg=#afd7d7 ctermfg=189
-hi Keyword guifg=#ff8700 ctermfg=203
+hi Keyword guifg=#f5f5f5 ctermfg=203
 hi Macro guifg=#5fafff ctermfg=75
-hi Normal guifg=#c9d1d9 ctermfg=188 guibg=#1c1c1c ctermbg=233
+hi Normal guifg=#d7d7d7 ctermfg=188 guibg=#1c1c1c ctermbg=233
 hi Number guifg=#5fafff ctermfg=75
 hi PreCondit guifg=#5fafff ctermfg=75
 hi Search guifg=#121212 ctermfg=233 guibg=#5fafff ctermbg=75
 hi IncSearch guifg=#7bcc72 ctermfg=113 guibg=#121212 ctermbg=233
 hi PreProc guifg=#d7d7ff ctermfg=189
-hi Statement guifg=#ff8700 ctermfg=203
-hi StorageClass guifg=#ff8700 ctermfg=203
+hi Statement guifg=#f5f5f5 ctermfg=203
+hi StorageClass guifg=#f5f5f5 ctermfg=203
 hi String guifg=#87d7ff ctermfg=117
 hi Todo guifg=#5fafff ctermfg=75 guibg=#545c8c ctermbg=60 gui=bold cterm=bold
 hi Type guifg=#ff5f5f ctermfg=203
@@ -38,24 +38,29 @@ hi TypeDef guifg=#a8a384 ctermfg=144 gui=NONE cterm=NONE
 hi Variable guifg=#fb8532 ctermfg=208
 hi Visual guibg=#363e7f ctermbg=61 gui=NONE cterm=NONE
 
-hi rustQuestionMark guifg=#ff8700 ctermfg=203
+hi vimCommand guifg=#f5f5f5 ctermfg=203
+hi vimIsCommand guifg=#5fafff ctermfg=75
+hi vimNotation guifg=#87d7ff ctermfg=117
+hi vimBracket guifg=#d7d7d7 ctermfg=189
 
-hi htmlTag guifg=#c9d1d9 ctermfg=188
+hi rustQuestionMark guifg=#f5f5f5 ctermfg=203
+
+hi htmlTag guifg=#d7d7d7 ctermfg=188
 hi htmlTagName guifg=#7bcc72 ctermfg=113
-hi htmlTitle guifg=#c9d1d9 ctermfg=188
+hi htmlTitle guifg=#d7d7d7 ctermfg=188
 hi htmlArg guifg=#af87d7 ctermfg=140
-hi htmlSpecialTagName guifg=#ff8700 ctermfg=203
+hi htmlSpecialTagName guifg=#f5f5f5 ctermfg=203
 
 hi tsxTagName guifg=#7bcc72 ctermfg=113
 
-hi typescriptExport guifg=#ff8700 ctermfg=203
-hi typescriptFuncKeyword guifg=#ff8700 ctermfg=203
+hi typescriptExport guifg=#f5f5f5 ctermfg=203
+hi typescriptFuncKeyword guifg=#f5f5f5 ctermfg=203
 hi typescriptVariableDeclaration guifg=#fb8532 ctermfg=208
-hi typescriptVariable guifg=#ff8700 ctermfg=203
+hi typescriptVariable guifg=#f5f5f5 ctermfg=203
 
 if has("nvim")
   let g:terminal_color_0 = '#117219'
-  let g:terminal_color_1 = '#ff8700'
+  let g:terminal_color_1 = '#f5f5f5'
   let g:terminal_color_2 = '#7bcc72'
   let g:terminal_color_3 = '#8e8a6f'
   let g:terminal_color_4 = '#87afd7'

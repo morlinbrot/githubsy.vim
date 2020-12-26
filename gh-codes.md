@@ -1,7 +1,7 @@
 Name            gh-css  gh-name     gh-hex  cterm       replacement
 almost black            background                      #121212  234
 dark gray       pl-c    comment     #959da5  109        #545c8c  60
-light gray              normal                          #c9d1d9  188
+light gray              normal                          #d7d7d7  188
 
 indian red      pl-k    keyword     #ea4a5a  167        #ff5f5f  203
 dark orange     pl-v    variable    #fb8532  209        #ff8700  208
