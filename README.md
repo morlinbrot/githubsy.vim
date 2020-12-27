@@ -17,13 +17,15 @@ It seems that the actual colors in the CSS output do not comply to Github's own 
 | PurpleGray        |           |           | #8787d7   | 104   |             | 
 | BlueGray          | #6a737d   |           | #5f8787   | 66    | #5f87af 67  | pl-sg gutter
 | GreenGray         | #959da5   |           | #87afaf   | 109   |             | pl-c comment
-| EarthenBrown      | #b08800   |           | #af8700   | 137   |             | pl-mc mh changed
+| RedAlert          |           |           |           |       | #ff005f 197 | pl-bu inv broken
+| WeetyWarning      |           |           |           |       | #ffffaf 229 | pl-bu inv broken
 | EminentRed        | #d73a49   |           | #d75f5f   | 167   |             | pl-bu inv broken
 | EminentRed        | #ea4a5a   |           | #d75f5f   | 167   |             | pl-k keyword
 | RustyRed          | #fb8532   | #ff7b72   | #ff875f   | 209   |             | pl-v variable
 | JazzyOrange       |           | #ffa657   | #ffaf5f   | 215   |             |
-| PurplePillsPurple | #b392f0   |           | #af87ff   | 141   |             | pl-e entity
-| PleasingPurple    |           | #d2a8ff   | #d7afff   | 183   |             |
+| RosieBrown        | #b08800   |           | #af8700   | 137   | #af8787 138 | pl-mc mh changed
+| PleasingPurple    | #b392f0   |           | #af87ff   | 141   |             | pl-e entity
+| PillsyPurple      |           | #d2a8ff   | #d7afff   | 183   |             |
 | MistyPurple       | #c8e1ff   |           | #d7d7ff   | 189   |             | pl-c1 constant
 | BasicBlue         | #0366d6   |           | #005fd7   | 26    |             | pl-mh heading
 | CandyMethBlue     |           | #58a6ff   | #5fafff   | 75    |             | GH Repo title

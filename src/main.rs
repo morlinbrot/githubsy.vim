@@ -20,31 +20,57 @@ impl Color {
 }
 
 #[derive(Debug)]
+pub enum HighlightAttr {
+    Nothing,
+    None,
+    Bold,
+    Italic,
+    Underline,
+    Reverse,
+}
+
+#[derive(Debug)]
 struct Highlight {
     name: &'static str,
     fg: ColorName,
     bg: ColorName,
+    attr: HighlightAttr,
 }
 
 macro_rules! highlight {
-    ($name: ident, $fg: expr, $bg: expr) => {
+    ($name: ident, $fg: expr, $bg: expr, $attr: ident) => {
         Highlight {
             name: stringify!($name),
             fg: $fg,
             bg: $bg,
+            attr: HighlightAttr::$attr,
         }
     };
 }
 
 macro_rules! hi {
-    ($name: ident, $fg: ident, -) => {
-        highlight!($name, Some(stringify!($fg)), None)
+    ($name: ident, $fg: ident, -, -) => {
+        highlight!($name, Some(stringify!($fg)), None, Nothing)
     };
-    ($name: ident, -, $bg: ident) => {
-        highlight!($name, None, Some(stringify!($bg)))
+    ($name: ident, $fg: ident, $bg: ident, -) => {
+        highlight!($name, Some(stringify!($fg)), Some(stringify!($bg)), Nothing)
     };
-    ($name: ident, $fg: ident, $bg: ident) => {
-        highlight!($name, Some(stringify!($fg)), Some(stringify!($bg)))
+    ($name: ident, $fg: ident, $bg: ident, $attr: ident) => {
+        highlight!($name, Some(stringify!($fg)), Some(stringify!($bg)), $attr)
+    };
+    ($name: ident, $fg: ident, -, $attr: ident) => {
+        highlight!($name, Some(stringify!($fg)), None, $attr)
+    };
+
+    ($name: ident, -, $bg: ident, -) => {
+        highlight!($name, None, Some(stringify!($bg)), Nothing)
+    };
+    ($name: ident, -, $bg: ident, $attr: ident) => {
+        highlight!($name, None, Some(stringify!($bg)), $attr)
+    };
+
+    ($name: ident, -, -, $attr: ident) => {
+        highlight!($name, None, None, $attr)
     };
 }
 
@@ -99,6 +125,19 @@ let g:colors_name = 'githubsy'
             }
         }
 
+        let attr = match hl.attr {
+            HighlightAttr::Nothing => "",
+            HighlightAttr::None => "gui=NONE cterm=NONE",
+            HighlightAttr::Bold => "gui=bold cterm=bold",
+            HighlightAttr::Italic => "gui=italic cterm=italic",
+            HighlightAttr::Underline => "gui=underline cterm=underline",
+            HighlightAttr::Reverse => "gui=reverse cterm=reverse",
+        };
+
+        if attr != "" {
+            args.push(attr.to_string());
+        }
+
         let line = format!("hi {}\n", args.join(" "));
 
         buf.write_all(line.as_bytes())?;
@@ -138,13 +177,16 @@ fn get_palette() -> Palette {
     def!(BlueGray, "#5f87af", 67);
     def!(GreenGray, "#87afaf", 109);
 
-    def!(EarthenBrown, "#af8700", 137);
+    def!(RedAlert, "#ff005f", 197);
+    def!(WeetyWarning, "#ffffaf", 229);
+
     def!(EminentRed, "#d75f5f", 167);
     def!(RustyRed, "#ff875f", 209);
     def!(JazzyOrange, "#ffaf5f", 215);
 
-    def!(PurplePillsPurple, "#af87ff", 141);
-    def!(PleasingPurple, "#d7afff", 183);
+    def!(RosieBrown, "#af8787", 138);
+    def!(PleasingPurple, "#af87ff", 141);
+    def!(PillsyPurple, "#d7afff", 183);
     def!(MistyPurple, "#d7d7ff", 189);
 
     def!(BasicBlue, "#005fd7", 26);
@@ -161,47 +203,77 @@ fn get_palette() -> Palette {
 
 fn get_highlights() -> Vec<Highlight> {
     vec![
-        hi!(Boolean, CandyMethBlue, -),
-        hi!(Comment, GreenGray, -),
-        hi!(Constant, CandyMethBlue, -),
-        hi!(Define, MistyPurple, -),
-        hi!(Delimiter, RustyRed, -),
-        hi!(Float, CandyMethBlue, -),
-        hi!(Function, PleasingPurple, -),
-        hi!(Identifier, PleasingPurple, -),
-        hi!(Include, MistyPurple, -),
-        hi!(Keyword, RustyRed, -),
-        hi!(Macro, CandyMethBlue, -),
-        hi!(MatchParen, -, SteelGray),
-        hi!(Normal, NormieWhitey, AllBlack),
-        hi!(Number, CandyMethBlue, -),
-        hi!(PreCondit, CandyMethBlue, -),
-        hi!(IncSearch, AcidGreen, AlmostBlack),
-        hi!(PreProc, MistyPurple, -),
-        hi!(Search, AlmostBlack, CandyMethBlue),
-        hi!(Special, EminentRed, -),
-        hi!(Statement, RustyRed, -),
-        hi!(StorageClass, RustyRed, -),
-        hi!(String, MistyBlue, -),
-        hi!(Todo, CandyMethBlue, -),
-        hi!(Type, RustyRed, -),
-        hi!(TypeDef, PleasingPurple, -),
-        hi!(Variable, CandyMethBlue, -),
-        hi!(Visual, -, AlmostNotGray),
-        hi!(vimCommand, RustyRed, -),
-        hi!(vimIsCommand, CandyMethBlue, -),
-        hi!(vimNotation, MistyBlue, -),
-        hi!(vimBracket, MistyPurple, -),
-        hi!(rustQuestionMark, RustyRed, -),
-        hi!(htmlTag, NormieWhitey, -),
-        hi!(htmlTagName, AcidGreen, -),
-        hi!(htmlTitle, NormieWhitey, -),
-        hi!(htmlArg, PleasingPurple, -),
-        hi!(htmlSpecialTagName, RustyRed, -),
-        hi!(tsxTagName, AcidGreen, -),
-        hi!(typescriptExport, RustyRed, -),
-        hi!(typescriptFuncKeyword, RustyRed, -),
-        hi!(typescriptVariableDeclaration, BasicBlue, -),
-        hi!(typescriptVariable, RustyRed, -),
+        hi!(Boolean, CandyMethBlue, -, -),
+        hi!(Comment, SteelGray, -, -),
+        hi!(Constant, CandyMethBlue, -, -),
+        hi!(Define, MistyPurple, -, -),
+        hi!(Delimiter, RustyRed, -, -),
+        hi!(Error, EminentRed, AllBlack, Bold),
+        hi!(ErrorMsg, EminentRed, AllBlack, Bold),
+        hi!(Function, PillsyPurple, -, -),
+        hi!(Identifier, PillsyPurple, -, -),
+        hi!(Include, MistyPurple, -, -),
+        hi!(Keyword, RustyRed, -, -),
+        hi!(CursorLineNr, PillsyPurple, -, -),
+        hi!(LineNr, SteelGray, -, -),
+        hi!(Macro, CandyMethBlue, -, -),
+        hi!(MatchParen, -, SteelGray, -),
+        hi!(Normal, NormieWhitey, AllBlack, -),
+        hi!(NormalFloat, NormieWhitey, AllBlack, -),
+        hi!(Number, CandyMethBlue, -, -),
+        hi!(PreCondit, CandyMethBlue, -, -),
+        hi!(IncSearch, AcidGreen, AlmostBlack, -),
+        hi!(PreProc, MistyPurple, -, -),
+        hi!(Search, AlmostBlack, CandyMethBlue, -),
+        hi!(SignColumn, PillsyPurple, -, -),
+        hi!(Special, EminentRed, -, -),
+        hi!(Statement, RustyRed, -, -),
+        hi!(StorageClass, RustyRed, -, -),
+        hi!(String, MistyBlue, -, -),
+        hi!(Todo, CandyMethBlue, -, -),
+        hi!(Type, RustyRed, -, -),
+        hi!(TypeDef, PillsyPurple, -, -),
+        hi!(Underlined, -, -, Underline),
+        hi!(Variable, CandyMethBlue, -, -),
+        hi!(Visual, -, AlmostNotGray, -),
+        hi!(Pmenu, PurpleGray, AlmostNotGray, -),
+        hi!(PmenuSel, NormieWhitey, PurpleGray, -),
+        hi!(PmenuSbar, -, AlmostNotGray, -),
+        hi!(PmenuThumb, -, SteelGray, -),
+        hi!(WildMenu, RustyRed, SteelGray, -),
+        hi!(LspDiagnosticsDefaultError, RedAlert, AlmostNotGray, Bold),
+        // hi!(LspDiagnosticsFloatingError, EminentRed, -, Bold),
+        hi!(LspDiagnosticsSignError, RedAlert, AllBlack, Bold),
+        hi!(
+            LspDiagnosticsDefaultWarning,
+            WeetyWarning,
+            AlmostNotGray,
+            Bold
+        ),
+        hi!(LspDiagnosticsSignWarning, WeetyWarning, AllBlack, Bold),
+        hi!(LspDiagnosticsDefaultHint, MistyBlue, AlmostNotGray, Bold),
+        hi!(LspDiagnosticsSignHint, MistyBlue, AllBlack, Bold),
+        hi!(
+            LspDiagnosticsDefaultInformation,
+            MistyGreen,
+            AlmostNotGray,
+            Bold
+        ),
+        hi!(LspDiagnosticsSignInformation, MistyGreen, AllBlack, Bold),
+        hi!(vimCommand, RustyRed, -, -),
+        hi!(vimIsCommand, CandyMethBlue, -, -),
+        hi!(vimNotation, MistyBlue, -, -),
+        hi!(vimBracket, MistyPurple, -, -),
+        hi!(rustQuestionMark, RustyRed, -, -),
+        hi!(htmlTag, NormieWhitey, -, -),
+        hi!(htmlTagName, AcidGreen, -, -),
+        hi!(htmlTitle, NormieWhitey, -, -),
+        hi!(htmlArg, PillsyPurple, -, -),
+        hi!(htmlSpecialTagName, RustyRed, -, -),
+        hi!(tsxTagName, AcidGreen, -, -),
+        hi!(typescriptExport, RustyRed, -, -),
+        hi!(typescriptFuncKeyword, RustyRed, -, -),
+        hi!(typescriptVariableDeclaration, BasicBlue, -, -),
+        hi!(typescriptVariable, RustyRed, -, -),
     ]
 }

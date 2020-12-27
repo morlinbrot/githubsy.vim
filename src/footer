@@ -1,45 +1,33 @@
-hi NonText guifg=#363859 ctermfg=60 guibg=NONE ctermbg=NONE
-hi VertSplit guifg=#32364c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LineNr guifg=#32364c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi EndOfBuffer guifg=#363859 ctermfg=60 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Cursor guifg=#222433 ctermfg=235 guibg=#9ea3c0 ctermbg=146
-hi CursorIM guifg=#222433 ctermfg=235 guibg=#9ea3c0 ctermbg=146
-hi SignColumn guifg=#545c8c ctermfg=60 guibg=NONE ctermbg=NONE
 hi ColorColumn guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
-hi CursorColumn guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
-hi CursorLine guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
-hi CursorLineNr guifg=#535f98 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Conceal guifg=#ac8b83 ctermfg=138 guibg=#222433 ctermbg=235 gui=NONE cterm=NONE
-hi NormalFloat guifg=#9ea3c0 ctermfg=146 guibg=#32364c ctermbg=237 gui=NONE cterm=NONE
-hi Folded guifg=#666c99 ctermfg=60 guibg=#32364c ctermbg=237 gui=NONE cterm=NONE
-hi FoldColumn guifg=#32364c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Directory guifg=#a8a384 ctermfg=144
-hi Underlined gui=underline cterm=underline
-hi Label guifg=#929be5 ctermfg=104 gui=NONE cterm=NONE
-hi Title guifg=#a8a384 ctermfg=144 gui=bold cterm=bold
-hi Exception guifg=#a8a384 ctermfg=144
-hi SpecialKey guifg=#b871b8 ctermfg=133
-hi SpecialChar guifg=#b871b8 ctermfg=133
-hi SpecialComment guifg=#b871b8 ctermfg=133
-hi Error guifg=#ff5f5f ctermfg=209 guibg=#222433 ctermbg=235 gui=bold cterm=bold
-hi ErrorMsg guifg=#ff5f5f ctermfg=209 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi WarningMsg guifg=#ac8b83 ctermfg=138 gui=bold cterm=bold
-hi MoreMsg guifg=#73c1a9 ctermfg=79
-hi Pmenu guifg=#9ea3c0 ctermfg=146 guibg=#32364c ctermbg=237
-hi PmenuSel guifg=#9ea3c0 ctermfg=146 guibg=#424865 ctermbg=60
-hi PmenuSbar guibg=#292c3f ctermbg=236
-hi PmenuThumb guibg=#464f7f ctermbg=60
-hi Question guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
-hi WildMenu guifg=#222433 ctermfg=235 guibg=#929be5 ctermbg=104
-hi SpellBad guifg=#ff5f5f ctermfg=209 gui=underline cterm=underline
-hi SpellCap gui=underline cterm=underline
-hi SpellLocal guifg=#ff5f5f ctermfg=209 gui=underline cterm=underline
-hi SpellRare guifg=#a8a384 ctermfg=144 gui=underline cterm=underline
+hi Cursor guifg=#222433 ctermfg=235 guibg=#9ea3c0 ctermbg=146
+hi CursorColumn guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
+hi CursorIM guifg=#222433 ctermfg=235 guibg=#9ea3c0 ctermbg=146
+hi CursorLine guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
 hi DiffAdd guibg=#1c394b ctermbg=237 gui=bold cterm=bold
 hi DiffChange guibg=#26463b ctermbg=23 gui=bold cterm=bold
 hi DiffDelete guifg=#d2d9ff ctermfg=189 guibg=#5e3e5e ctermbg=96 gui=bold cterm=bold
 hi DiffText guibg=#28795c ctermbg=29 gui=NONE cterm=NONE
+hi Directory guifg=#a8a384 ctermfg=144
+hi EndOfBuffer guifg=#363859 ctermfg=60 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Exception guifg=#a8a384 ctermfg=144
+hi FoldColumn guifg=#32364c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Folded guifg=#666c99 ctermfg=60 guibg=#32364c ctermbg=237 gui=NONE cterm=NONE
+hi Label guifg=#929be5 ctermfg=104 gui=NONE cterm=NONE
+hi MoreMsg guifg=#73c1a9 ctermfg=79
+hi NonText guifg=#363859 ctermfg=60 guibg=NONE ctermbg=NONE
+hi Question guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
 hi QuickFixLine guifg=#9ea3c0 ctermfg=146 guibg=#363e7f ctermbg=61
+hi SpecialChar guifg=#b871b8 ctermfg=133
+hi SpecialComment guifg=#b871b8 ctermfg=133
+hi SpecialKey guifg=#b871b8 ctermfg=133
+hi SpellBad guifg=#ff5f5f ctermfg=209 gui=underline cterm=underline
+hi SpellCap gui=underline cterm=underline
+hi SpellLocal guifg=#ff5f5f ctermfg=209 gui=underline cterm=underline
+hi SpellRare guifg=#a8a384 ctermfg=144 gui=underline cterm=underline
+hi Title guifg=#a8a384 ctermfg=144 gui=bold cterm=bold
+hi VertSplit guifg=#32364c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi WarningMsg guifg=#ac8b83 ctermfg=138 gui=bold cterm=bold
 
 hi StatusLine guifg=#757aa5 ctermfg=103 guibg=#2a2c3f ctermbg=236 gui=bold cterm=bold
 hi StatusLineTerm guifg=#757aa5 ctermfg=103 guibg=#2a2c3f ctermbg=236 gui=bold cterm=bold
