@@ -112,7 +112,10 @@ hi htmlTitle guifg=#d7d7d7 ctermfg=188 guibg=NONE ctermbg=NONE
 hi htmlArg guifg=#d7afff ctermfg=183 guibg=NONE ctermbg=NONE
 hi htmlSpecialTagName guifg=#ff875f ctermfg=209 guibg=NONE ctermbg=NONE
 hi tsxTagName guifg=#87ff00 ctermfg=118 guibg=NONE ctermbg=NONE
+hi typescriptBraces guifg=#d7d7d7 ctermfg=188 guibg=NONE ctermbg=NONE
 hi typescriptExport guifg=#ff875f ctermfg=209 guibg=NONE ctermbg=NONE
 hi typescriptFuncKeyword guifg=#ff875f ctermfg=209 guibg=NONE ctermbg=NONE
-hi typescriptVariableDeclaration guifg=#005fd7 ctermfg=26 guibg=NONE ctermbg=NONE
+hi typescriptIdentifierName guifg=#d7afff ctermfg=183 guibg=NONE ctermbg=NONE
+hi typescriptMember guifg=#d7d7ff ctermfg=189 guibg=NONE ctermbg=NONE
+hi typescriptVariableDeclaration guifg=#5fafff ctermfg=75 guibg=NONE ctermbg=NONE
 hi typescriptVariable guifg=#ff875f ctermfg=209 guibg=NONE ctermbg=NONE

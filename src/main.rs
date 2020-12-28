@@ -297,9 +297,12 @@ fn get_highlights() -> Vec<Highlight> {
         hi!(htmlArg, PillsyPurple, -, -),
         hi!(htmlSpecialTagName, RustyRed, -, -),
         hi!(tsxTagName, AcidGreen, -, -),
+        hi!(typescriptBraces, NormieWhitey, -, -),
         hi!(typescriptExport, RustyRed, -, -),
         hi!(typescriptFuncKeyword, RustyRed, -, -),
-        hi!(typescriptVariableDeclaration, BasicBlue, -, -),
+        hi!(typescriptIdentifierName, PillsyPurple, -, -),
+        hi!(typescriptMember, MistyPurple, -, -),
+        hi!(typescriptVariableDeclaration, CandyMethBlue, -, -),
         hi!(typescriptVariable, RustyRed, -, -),
     ]
 }
