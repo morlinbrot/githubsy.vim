@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::prelude::*;
-use std::io::BufReader;
 use std::path::Path;
 
 type ColorName = Option<&'static str>;
@@ -143,16 +142,6 @@ let g:colors_name = 'githubsy'
         buf.write_all(line.as_bytes())?;
     }
 
-    let footer = File::open("src/footer")?;
-    let lines = BufReader::new(footer).lines();
-
-    for line in lines {
-        if let Ok(l) = line {
-            buf.write_all(l.as_bytes())?;
-            buf.write_all(b"\n")?;
-        }
-    }
-
     Ok(())
 }
 
@@ -169,7 +158,7 @@ fn get_palette() -> Palette {
 
     def!(AllBlack, "#000000", 16);
     def!(AlmostBlack, "#121212", 234);
-    def!(AlmostNotGray, "#121212", 236);
+    def!(AlmostNotGray, "#303030", 236);
     def!(SteelGray, "#8787af", 103);
     def!(NormieWhitey, "#d7d7d7", 188);
 
@@ -192,11 +181,12 @@ fn get_palette() -> Palette {
     def!(BasicBlue, "#005fd7", 26);
     def!(CandyMethBlue, "#5fafff", 75);
     def!(TrueBlue, "#87afff", 111);
+    def!(PoppinBlue, "#87d7ff", 117);
     def!(MistyBlue, "#afd7ff", 153);
 
-    def!(AcidGreen, "#87d75f", 113);
+    def!(AcidGreen, "#87ff00", 118);
     def!(LizardGreen, "#87d787", 114);
-    def!(MistyGreen, "#afd7d7", 152);
+    def!(MistyGreen, "#d7ffff", 194);
 
     palette
 }
@@ -205,19 +195,36 @@ fn get_highlights() -> Vec<Highlight> {
     vec![
         hi!(Boolean, CandyMethBlue, -, -),
         hi!(Comment, SteelGray, -, -),
+        hi!(Conceal, RosieBrown, AllBlack, None),
         hi!(Constant, CandyMethBlue, -, -),
         hi!(Define, MistyPurple, -, -),
         hi!(Delimiter, RustyRed, -, -),
         hi!(Error, EminentRed, AllBlack, Bold),
         hi!(ErrorMsg, EminentRed, AllBlack, Bold),
+        hi!(Exception, EminentRed, -, -),
+        hi!(FoldColumn, PleasingPurple, AlmostNotGray, -),
+        hi!(Folded, PleasingPurple, AlmostNotGray, -),
         hi!(Function, PillsyPurple, -, -),
         hi!(Identifier, PillsyPurple, -, -),
         hi!(Include, MistyPurple, -, -),
         hi!(Keyword, RustyRed, -, -),
+        hi!(Label, PleasingPurple, -, None),
+        hi!(ColorColumn, -, AlmostNotGray, None),
+        hi!(Cursor, AllBlack, NormieWhitey, None),
+        hi!(CursorIM, AllBlack, NormieWhitey, None),
+        hi!(CursorColumn, -, AlmostNotGray, None),
+        hi!(CursorLine, -, AlmostNotGray, None),
         hi!(CursorLineNr, PillsyPurple, -, -),
+        hi!(DiffAdd, AcidGreen, AlmostNotGray, Bold),
+        hi!(DiffChange, -, AlmostNotGray, Bold),
+        hi!(DiffDelete, RedAlert, AlmostNotGray, Bold),
+        hi!(DiffText, WeetyWarning, AlmostNotGray, Bold),
+        hi!(Directory, RosieBrown, -, Bold),
         hi!(LineNr, SteelGray, -, -),
         hi!(Macro, CandyMethBlue, -, -),
         hi!(MatchParen, -, SteelGray, -),
+        hi!(MoreMsg, PillsyPurple, AlmostNotGray, Bold),
+        hi!(NonText, PleasingPurple, -, Bold),
         hi!(Normal, NormieWhitey, AllBlack, -),
         hi!(NormalFloat, NormieWhitey, AllBlack, -),
         hi!(Number, CandyMethBlue, -, -),
@@ -227,11 +234,16 @@ fn get_highlights() -> Vec<Highlight> {
         hi!(Search, AlmostBlack, CandyMethBlue, -),
         hi!(SignColumn, PillsyPurple, -, -),
         hi!(Special, EminentRed, -, -),
+        hi!(SpellBad, EminentRed, -, Underline),
+        hi!(SpellCap, WeetyWarning, -, Underline),
+        hi!(SpellLocal, WeetyWarning, -, Underline),
+        hi!(SpellRare, WeetyWarning, -, Underline),
         hi!(Statement, RustyRed, -, -),
         hi!(StorageClass, RustyRed, -, -),
         hi!(String, MistyBlue, -, -),
+        hi!(Title, RosieBrown, -, Bold),
         hi!(Todo, CandyMethBlue, -, -),
-        hi!(Type, RustyRed, -, -),
+        hi!(Type, PoppinBlue, -, -),
         hi!(TypeDef, PillsyPurple, -, -),
         hi!(Underlined, -, -, Underline),
         hi!(Variable, CandyMethBlue, -, -),
@@ -239,7 +251,14 @@ fn get_highlights() -> Vec<Highlight> {
         hi!(Pmenu, PurpleGray, AlmostNotGray, -),
         hi!(PmenuSel, NormieWhitey, PurpleGray, -),
         hi!(PmenuSbar, -, AlmostNotGray, -),
+        hi!(Question, PillsyPurple, -, Bold),
+        hi!(QuickFixLine, PillsyPurple, -, Bold),
+        hi!(SpecialChar, PillsyPurple, -, -),
+        hi!(SpecialComment, PillsyPurple, -, -),
+        hi!(SpecialKey, PillsyPurple, -, -),
         hi!(PmenuThumb, -, SteelGray, -),
+        hi!(VertSplit, AlmostNotGray, -, None),
+        hi!(WarningMsg, EminentRed, -, Bold),
         hi!(WildMenu, RustyRed, SteelGray, -),
         hi!(LspDiagnosticsDefaultError, RedAlert, AlmostNotGray, Bold),
         // hi!(LspDiagnosticsFloatingError, EminentRed, -, Bold),
@@ -260,6 +279,13 @@ fn get_highlights() -> Vec<Highlight> {
             Bold
         ),
         hi!(LspDiagnosticsSignInformation, MistyGreen, AllBlack, Bold),
+        hi!(StatusLine, PleasingPurple, AlmostNotGray, Bold),
+        hi!(StatusLineTerm, PleasingPurple, AlmostNotGray, Bold),
+        hi!(StatusLineNC, SteelGray, AlmostNotGray, None),
+        hi!(StatusLineTermNC, SteelGray, AlmostNotGray, None),
+        hi!(TabLine, PleasingPurple, AlmostNotGray, None),
+        hi!(TabLineFill, PleasingPurple, AlmostNotGray, None),
+        hi!(TabLineSel, AlmostNotGray, PleasingPurple, Bold),
         hi!(vimCommand, RustyRed, -, -),
         hi!(vimIsCommand, CandyMethBlue, -, -),
         hi!(vimNotation, MistyBlue, -, -),
