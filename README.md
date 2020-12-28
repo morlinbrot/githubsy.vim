@@ -11,7 +11,7 @@ It seems that the actual colors in the CSS output do not comply to Github's own 
 | name              | spec      | actual    | converted |       | scheme    |     | note
 |-------------------|-----------|-----------|-----------|-------|-----------| ----|-------------------------
 | AllBlack          |           | #0d1117   | #000000   | 16    |           |     | GH syntax hl (background)
-| AlmostBlack       |           |           |           |       | #121212   | 234 | 
+| AlmostBlack       |           |           |           |       | #121212   | 233 | 
 | AlmostNotGray     |           |           |           |       | #303030   | 236 | 
 | SteelGray         |           | #8b949e   | #8787af   | 103   |           |     | GH syntax hl (comment)
 | NormieWhitey      |           | #c9d1d9   | #d7d7d7   | 188   |           |     | GH syntax hl (normal text)

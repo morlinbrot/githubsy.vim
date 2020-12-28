@@ -51,13 +51,13 @@ hi Macro guifg=#5fafff ctermfg=75 guibg=NONE ctermbg=NONE
 hi MatchParen guifg=NONE ctermfg=NONE guibg=#8787af ctermbg=103
 hi MoreMsg guifg=#d7afff ctermfg=183 guibg=#303030 ctermbg=236 gui=bold cterm=bold
 hi NonText guifg=#af87ff ctermfg=141 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Normal guifg=#d7d7d7 ctermfg=188 guibg=#000000 ctermbg=16
+hi Normal guifg=#d7d7d7 ctermfg=188 guibg=#121212 ctermbg=233
 hi NormalFloat guifg=#d7d7d7 ctermfg=188 guibg=#000000 ctermbg=16
 hi Number guifg=#5fafff ctermfg=75 guibg=NONE ctermbg=NONE
 hi PreCondit guifg=#5fafff ctermfg=75 guibg=NONE ctermbg=NONE
-hi IncSearch guifg=#87ff00 ctermfg=118 guibg=#121212 ctermbg=234
+hi IncSearch guifg=#87ff00 ctermfg=118 guibg=#121212 ctermbg=233
 hi PreProc guifg=#d7d7ff ctermfg=189 guibg=NONE ctermbg=NONE
-hi Search guifg=#121212 ctermfg=234 guibg=#5fafff ctermbg=75
+hi Search guifg=#121212 ctermfg=233 guibg=#5fafff ctermbg=75
 hi SignColumn guifg=#d7afff ctermfg=183 guibg=NONE ctermbg=NONE
 hi Special guifg=#d75f5f ctermfg=167 guibg=NONE ctermbg=NONE
 hi SpellBad guifg=#d75f5f ctermfg=167 guibg=NONE ctermbg=NONE gui=underline cterm=underline

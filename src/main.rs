@@ -157,7 +157,7 @@ fn get_palette() -> Palette {
     }
 
     def!(AllBlack, "#000000", 16);
-    def!(AlmostBlack, "#121212", 234);
+    def!(AlmostBlack, "#121212", 233);
     def!(AlmostNotGray, "#303030", 236);
     def!(SteelGray, "#8787af", 103);
     def!(NormieWhitey, "#d7d7d7", 188);
@@ -225,7 +225,7 @@ fn get_highlights() -> Vec<Highlight> {
         hi!(MatchParen, -, SteelGray, -),
         hi!(MoreMsg, PillsyPurple, AlmostNotGray, Bold),
         hi!(NonText, PleasingPurple, -, Bold),
-        hi!(Normal, NormieWhitey, AllBlack, -),
+        hi!(Normal, NormieWhitey, AlmostBlack, -),
         hi!(NormalFloat, NormieWhitey, AllBlack, -),
         hi!(Number, CandyMethBlue, -, -),
         hi!(PreCondit, CandyMethBlue, -, -),
