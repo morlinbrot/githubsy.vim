@@ -230,7 +230,7 @@ fn get_highlights() -> Vec<Highlight> {
         hi!(Number, CandyMethBlue, -, -),
         hi!(PreCondit, CandyMethBlue, -, -),
         hi!(IncSearch, AcidGreen, AlmostBlack, -),
-        hi!(PreProc, MistyPurple, -, -),
+        hi!(PreProc, MistyPurple, -, Italic),
         hi!(Search, AlmostBlack, CandyMethBlue, -),
         hi!(SignColumn, PillsyPurple, -, -),
         hi!(Special, EminentRed, -, -),

@@ -56,7 +56,7 @@ hi NormalFloat guifg=#d7d7d7 ctermfg=188 guibg=#000000 ctermbg=16
 hi Number guifg=#5fafff ctermfg=75 guibg=NONE ctermbg=NONE
 hi PreCondit guifg=#5fafff ctermfg=75 guibg=NONE ctermbg=NONE
 hi IncSearch guifg=#87ff00 ctermfg=118 guibg=#121212 ctermbg=233
-hi PreProc guifg=#d7d7ff ctermfg=189 guibg=NONE ctermbg=NONE
+hi PreProc guifg=#d7d7ff ctermfg=189 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi Search guifg=#121212 ctermfg=233 guibg=#5fafff ctermbg=75
 hi SignColumn guifg=#d7afff ctermfg=183 guibg=NONE ctermbg=NONE
 hi Special guifg=#d75f5f ctermfg=167 guibg=NONE ctermbg=NONE
